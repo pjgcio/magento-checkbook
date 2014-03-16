@@ -14,15 +14,14 @@
     </li>
 </ul>
     
-    
     <input type="hidden" id="checkbook_var"
-      data-key="2DW7KGc6LtbdnRc5qkBfaGMCXj4Nh4fOb6jML0iyKxY"
+      data-key=<?php echo $this->getMethod()->getConfigData('publishable_key');?>
           data-amount="20.45"
           data-name="Jr Merchants"
       data-for="Jr Merchants"
           data-description="2 widgets ($20.00)"
       data-user-email ="johnsmith4@gmail.com"
-      data-redirect-url = "jrmerchants"  
+      data-redirect-url = <?php echo $this->getMethod()->getConfigData('redirect_url');?>
       data-firstName ="john"
       data-lastName ="smith"/>
     
@@ -345,5 +344,5 @@
 
 
 <div>
-	<?php echo $this->getMethod()->getConfigData('message');?>
+  <?php echo $this->getMethod()->getConfigData('message');?>
 </div>

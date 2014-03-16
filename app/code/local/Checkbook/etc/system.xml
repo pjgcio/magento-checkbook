@@ -36,14 +36,14 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
                         </title>
-                        <secrey_key translate="label">
+                        <secret_key translate="label">
                             <label>Secret Key</label>
                             <frontend_type>text</frontend_type>
                             <sort_order>4</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
-                        </secrey_key>
+                        </secret_key>
                         <publishable_key translate="label">
                             <label>Publishable Key</label>
                             <frontend_type>text</frontend_type>
@@ -60,10 +60,18 @@
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
                         </endpoint>
+                        <redirect_url translate="label">
+                            <label>Redirect URL</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </redirect_url>
                         <email translate="label">
                             <label>Checkbook merchant email</label>
                             <frontend_type>text</frontend_type>
-                            <sort_order>7</sort_order>
+                            <sort_order>8</sort_order>
                             <show_in_default>1</show_in_default>
                             <show_in_website>1</show_in_website>
                             <show_in_store>0</show_in_store>
