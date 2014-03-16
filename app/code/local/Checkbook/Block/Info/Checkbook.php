@@ -1,5 +1,5 @@
 <?php
-class Checkbook_Block_Info_Pay extends Mage_Payment_Block_Info
+class Checkbook_Block_Info_Checkbook extends Mage_Payment_Block_Info
 {
 	protected function _prepareSpecificInformation($transport = null)
 	{
