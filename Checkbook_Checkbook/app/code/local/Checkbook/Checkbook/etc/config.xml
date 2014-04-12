@@ -1,0 +1,107 @@
+<?xml version="1.0"?>
+<!--
+ * Checkbook Checkbook Module
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the Open Software License (OSL 3.0)
+ * that is available through the world-wide-web at this URL:
+ * http://opensource.org/licenses/osl-3.0.php
+ *
+ * @category   Checkbook
+ * @package    Checkbook Checkbook
+ * @author     Abhishek Srivastava <abhisheksrivastava@cedcoss.com>
+-->
+<config>
+    <modules>
+        <Checkbook_Checkbook>
+            <version>1.0.0</version>
+        </Checkbook_Checkbook>
+    </modules>
+	
+	<!--Define Fieldsets, Blocks, Models and Helpers Directories-->
+	<global>
+		<blocks>
+            <checkbook>
+                <class>Checkbook_Checkbook_Block</class>
+            </checkbook>
+        </blocks>
+        <helpers>
+            <checkbook>
+                <class>Checkbook_Checkbook_Helper</class>
+            </checkbook>
+        </helpers>
+        <models>
+            <checkbook>
+                <class>Checkbook_Checkbook_Model</class>
+                <!--<resourceModel>checkbook_mysql4</resourceModel>-->
+            </checkbook>
+            <!--<checkbook_mysql4>
+                <class>Checkbook_Model_Mysql4</class>
+                <entities>
+                    <checkbook>
+                        <table>checkbook</table>
+                    </checkbook>
+                </entities>
+            </checkbook_mysql4>-->
+        </models>
+        <resources>
+            <checkbook_checkbook_setup>
+                <setup>
+                    <module>Checkbook_Checkbook</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </checkbook_checkbook_setup>
+            <checkbook_checkbook_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </checkbook_checkbook_read>
+            <checkbook_checkbook_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </checkbook_checkbook_write>
+        </resources>
+    </global>
+	
+	<!--Define Frontend Router & layout-->
+    <frontend>
+        <routers>
+            <checkbook>
+                <use>standard</use>
+                <args>
+                    <module>Checkbook_Checkbook</module>
+                    <frontName>checkbook</frontName>
+                </args>
+            </checkbook>
+        </routers>
+        <layout>
+            <updates>
+                <checkbook>
+                    <file>checkbook_payment.xml</file>
+                </checkbook>
+            </updates>
+        </layout>
+    </frontend>
+	
+    <default>
+        <payment>
+            <checkbook>
+				<model>checkbook/standard</model>
+				<active>0</active>
+				<order_status>processing</order_status>
+				<title>Pay By Checkbook</title>
+				<message>You can now pay securely by check online</message>
+				<!--<payment_action>offlinepayment</payment_action>-->
+				<!--<submit_url>https://someurl.com</submit_url>
+				<merchant_id>Insert merchant id</merchant_id>-->
+				<allowspecific>0</allowspecific>
+				<sort_order>1</sort_order>
+            </checkbook>
+         </payment>
+    </default>
+	
+</config>

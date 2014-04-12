@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+/**
+ *
+ * @category   Cedcoss
+ * @package    Cedcoss Checkbook.io Payment
+ * @author     Abhishek Srivastava <abhisheksrivastava@cedcoss.com>
+ */
+ -->
+<config>
+    <modules>
+        <Checkbook_Checkbook>
+            <active>true</active>
+            <codePool>local</codePool>
+			<depends>
+                <Mage_Payment />
+            </depends>
+        </Checkbook_Checkbook>
+    </modules>
+</config>
