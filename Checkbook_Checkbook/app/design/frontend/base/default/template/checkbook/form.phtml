@@ -63,14 +63,14 @@ data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Ente
 </div>
 
 <div id="sendACheck" style="padding:10px 20px 10px 20px; display: none;">
-You are ready to submit a Check payment of <span class="netAmount"></span> to <span class="merchantName"></span>.
+You are ready to submit a Check payment of $<span class="netAmount"></span> to <span class="merchantName"></span>.
 <br><br>
 The money will be withdrawn from your bank account.
 <br>
 <br>
 <div class="errorResp"></div>
 <br>	
-<button id="sendCheckBtn" class="btn btn-success" tabindex="5"
+<button type="button" id="sendCheckBtn" class="btn btn-success" tabindex="5"
 style="margin-bottom: 10px;">
 Send the Check</button>
 
@@ -145,7 +145,7 @@ Send the Check</button>
                                                                                                     
                                                                                                 <p class="errorResp"></p>
                                                                                             </div>
-                                                                                            <button id="microAuthInputBtn" class="btn btn-danger">Submit</button>
+                                                                                            <button type="button" id="microAuthInputBtn" class="btn btn-danger">Submit</button>
                                                                                     </div>
                                                                                     
                                                                                     
@@ -161,7 +161,7 @@ Send the Check</button>
                                                                                                 id="routingNum" name="routingNum" placeholder="Enter amount"
                                                                                                 data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Enter Your Routing Number">	<p class="errorResp"></p>
                                                                                             </div>
-                                                                                            <button id="microAuthCheck" class="btn btn-danger">Submit</button>
+                                                                                            <button type="button" id="microAuthCheck" class="btn btn-danger">Submit</button>
                                                                                                       
                                                                                     </div>
                                                                                     
@@ -247,7 +247,7 @@ The money will be withdrawn from your bank account.
 <div class="errorResp" style="display: none; color: red;">	
 </div>
 
-<button id="pinCreateBtn" class="btn btn-danger" tabindex="5"
+<button type="button" id="pinCreateBtn" class="btn btn-danger" tabindex="5"
 style="margin-bottom: 10px; margin-top:12px;">
 Continue</button>
 
@@ -279,7 +279,7 @@ data-parsley-required="true">
 Invalid Pin
 </div>
 
-<button id="loginWithYourPinBtn" class="btn btn-danger" tabindex="5"
+<button type="button" id="loginWithYourPinBtn" class="btn btn-danger" tabindex="5"
 style="margin-bottom: 10px;">
 Continue</button>
 
