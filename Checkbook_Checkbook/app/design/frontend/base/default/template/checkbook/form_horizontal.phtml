@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+	<meta charset="utf-8">
+	<title>checkbook.io - Home</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<!-- STYLESHEETS -->
+
+		
+</head>
+<body>
+	<!-- Modal -->
+	<div id="checkbookWrapper">
+	<div class="modal-dialog" style="width:600px;">
+	  <div class="modal-content">
+		<section id="senderInfo">
+			<div class="container">
+				<div class="row">
+					<div>
+						<div class="box" style="margin: 0; padding: 0px 20px 0px 20px;">
+							<h3 class="bigintro">Pay by Online Check
+								<a href="https://www.positivessl.com" style="font-family: arial; font-size: 10px; color: #212121;text-decoration: none;">
+									<img src="https://www.clickssl.com/wp-content/uploads/2012/01/ssl_verisign.png" alt="Positive SSL on a transparent background" title="Positive SSL on a transparent background" border="0"
+									     style="width: 100px;height: 50px;position: relative;top: -20px;right: 208px;float: right;"/>
+								</a>
+								
+								<a href="https://www.positivessl.com" style="font-family: arial; font-size: 10px; color: #212121;text-decoration: none;">
+									<img src="https://www.positivessl.com/images-new/PositiveSSL_tl_trans.png" alt="Positive SSL on a transparent background" title="Positive SSL on a transparent background" border="0"
+									     style="width: 60px;height: 60px;float: right;position: relative;top: -20px;right: -96px;"/>
+								</a>
+							</h3>
+                                                        
+                                                        <!-- topSideSenderForm  -->
+                                                        <div class="form-group" style="padding-right: 20px; margin-right:10px; margin-top:20px; float:none;">
+								  
+								  <!--<span style="position: absolute; top:-40px;">-------------   OR  -------------</span>-->
+								<div id="showReviewDiv">
+								    
+								</div>
+								
+								<div id="sendACheck"  style="padding:10px 20px 10px 20px; display: none;">
+									You are ready to submit a Check payment of <span class="netAmount"></span> to <span class="merchantName"></span>.
+									<br><br>
+									The money will be withdrawn from your bank account.
+									<br>
+									<br>
+									<div class="errorResp"></div>
+									
+                                                                        <!-- <br>	
+									<button id="sendCheckBtn" type="submit" class="btn btn-success" tabindex="5"
+									style="margin-bottom: 10px;">
+									      Send the Check</button>
+									-->
+                                                                        
+									<!--Show throbber-->
+									<div id="throbberIdSendCheck" class="progress progress-striped active" style="display: none;">
+										<div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+										  <!--<span class="sr-only">45% Complete</span>-->
+										</div>
+									</div>
+								</div>
+								
+								<div id="bankVerification" style="padding:10px 0px 0px 15px; display: none;">
+								  <div id="bankAuth" style="margin-top:-13px;">
+                                                                    <strong class="verificationTitle" style="display: none"></strong>
+                                                                    <div class="bankSelect">
+                                                                        <div class="row ctrls">
+                                                                            <ul class="nav nav-tabs navTab">
+                                                                              <li class="active"><a href="#bankVerify">Bank Verification</a></li>
+                                                                              <!--<li class=""><a href="#microVerify">Microdeposit</a></li>              -->
+                                                                            </ul>
+                                                                            <div class="tab-content">
+                                                                                <div class="tab-pane active" id="bankVerify">                                                                                    
+                                                                                    
+                                                                                    <!-- LOGIN -->
+                                                                                    <div id="bankAuthCheckDiv">
+                                                                                        
+                                                                                        <select id="bank_name" name="bank_name" class="margTB15 form-control" style="margin: 10px 10px 15px 0px !important; display: inline-block; width:130px; font-size:12px; vertical-align: top;">
+                                                                                            <option value="0" selected="">Choose your bank</option>            
+                                                                                            <option value="bofa">Bank Of America</option>
+                                                                                            <option value="wells">Wells fargo</option>
+                                                                                            <option value="chase">Chase</option>
+                                                                                            <option value="citi">Citi</option>
+                                                                                            <option value="us">US Bank</option>
+                                                                                            <option value="micro">My Bank is not listed here</option>
+                                                                                        </select>
+                                                                                        
+                                                                                          <div class="form-horizontal" style=" display: inline-block; margin:10px 10px 0px 0px; width:135px;">                
+                                                                                                <i class="icon-user box_i"></i>
+                                                                                                <input id='bank_user' name='bank_user' type="email" class="form-control" id="username" style="margin:0px 10px 15px 0px !important; font-size:12px; padding-left:7px !important;"
+                                                                                                    placeholder="Your Bank Username" disabled="disabled">
+                                                                                          </div>
+                                                                                          <div class="form-horizontal" style="padding-bottom:0px; margin-bottom:0px;  display: inline-block; width:135px;">                 
+                                                                                                <i class="icon-lock box_i"></i>
+                                                                                                <input id='bank_passwd' name='bank_passwd' type="password" class="form-control padLeft20" id="password" style="margin:0px 10px 15px 0px !important; font-size:12px; padding-left:7px !important;"
+                                                                                                    placeholder="Your Bank password" disabled="disabled">                                                                                                
+                                                                                          </div>
+                                                                                          <p class="errorResp" style="margin-bottom:5px;"></p>
+                                                                                          <button id="bankAuthCheck" type="button" class="btn btn-danger" disabled="disabled" style="width:70px; display: inline-block; position: absolute; top: 107px; left:465px;">Login</button>
+                                                                                          <div id="throbberIdBankAuthCheck" class="progress progress-striped active" style="display: none;">
+                                                                                                    <div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                                                                                      <!--<span class="sr-only">45% Complete</span>-->
+                                                                                                    </div>
+                                                                                            </div>
+                                                                                    </div>
+                                                                                    <!--/LOGIN -->
+                                                                                </div>
+                                                                                
+                                                                                <div class="tab-pane" id="microVerify">
+                                                                                    <div id="microAuthInputDiv" style="margin: 0px 0px 10px 0px;">
+                                                                                            <select id="bank_name_micro" name="bank_name_micro" class="margTB15 form-control" style="margin: 10px 10px 15px 0px !important; display: inline-block; width:130px; vertical-align: top; font-size: 12px;">
+                                                                                                <option value="0" selected="">Choose your bank</option>            
+                                                                                                <option value="bofa">Bank Of America</option>
+                                                                                                <option value="wells">Wells fargo</option>
+                                                                                                <option value="chase">Chase</option>
+                                                                                                <option value="citi">Citi</option>
+                                                                                                <option value="us">US Bank</option>
+                                                                                                <option value="micro">My Bank is not listed here</option>
+                                                                                            </select>
+                                                                                            <div class="form-horizontal" style="display: inline-block; width:130px; margin:0px 10px 0px 0px; vertical-align: top;">                                              
+                                                                                                <input class="form-control" type="text" style="margin:10px 0px 15px 0px !important; padding-left:10px !important; font-size: 12px"                                       
+                                                                                                id="accountNum" name="accountNum" placeholder="Account Number" maxlength="17"
+                                                                                                data-parsley-number="true" data-parsley-required="true">
+                                                                                            </div>
+                                                                                            <div class="form-horizontal" style="display: inline-block; width:130px; vertical-align: top;">                                               
+                                                                                                <input class="form-control" type="text" style="margin:10px 0px 15px 0px !important; padding-left:10px !important; font-size: 12px;"
+                                                                                                id="routingNum" name="routingNum" placeholder="Routing Number"
+                                                                                                data-toggle="tooltip" data-placement="bottom" title=""                                
+                                                                                                data-parsley-number="true"
+                                                                                                data-parsley-required="true"
+                                                                                                data-parsley-maxlength="9" data-parsley-minlength="9" maxlength="9">                                                                                                
+                                                                                            </div>
+                                                                                            <p class="errorResp"></p>
+                                                                                            <button id="microAuthInputBtn" type="submit" class="btn btn-danger" style="position: absolute; top:105px; width:80px; left:455px;">Submit</button>
+                                                                                    </div>
+                                                                                    
+                                                                                    
+                                                                                    <div id="microAuthVerifyDiv" style="display: none;">
+                                                                                        
+                                                                                            <div class="form-group">                                              
+                                                                                                <input class="form-control" type="text" style="margin:15px 0px 15px 0px !important; padding-left:10px !important;" maxlength="9"
+                                                                                                id="accountNum" name="accountNum" placeholder="Enter amount"
+                                                                                                data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Enter Your Account Number">										
+                                                                                            </div>
+                                                                                            <div class="form-group">                                               
+                                                                                                <input class="form-control" type="text" style="margin:0px 0px 15px 0px !important; padding-left:10px !important;"
+                                                                                                id="routingNum" name="routingNum" placeholder="Enter amount"
+                                                                                                data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Enter Your Routing Number">	                              <p class="errorResp"></p>
+                                                                                            </div>
+                                                                                            <button id="microAuthCheck" type="submit" class="btn btn-danger">Submit</button>
+                                                                                                      
+                                                                                    </div>
+                                                                                    
+                                                                                </div>
+                                                                
+                                                                            </div>
+                                                                        </div>                
+                                                                    </div>
+                                                                
+                                                                    
+                                                                    <!-- MFA TOKEN -->
+                                                                    <div id="bankMfaCheckDiv" style="display: none;">
+                                                                        
+                                                                          <div class="form-group">
+                                                                                <span class="font-bold">Security Question By <span class="bankNameId"></span></span>
+                                                                                <p class="padTB15">                    
+                                                                                    <span class="mfa_que"></span>    
+                                                                                </p>                
+                                                                          </div>
+                                                                          <div class="form-group" style="display: inline-block;">                                 
+                                                                                <input id='mfa_answer' name='mfa_answer' type="text" class="form-control" style="margin:0px 15px 15px 0px !important; padding-left:8px !important; "
+                                                                                    placeholder="Your answer">
+                                                                                
+                                                                          </div>
+                                                                          
+                                                                            <button id="bankMfaCheck" type="button" class="btn btn-danger" style="display: inline-block; width:100px; position: relative; top:-4px;">Submit</button>
+                                                                            
+                                                                            <p class="errorResp"></p>
+                                                                            <div id="throbberIdBankMfaCheck" class="progress progress-striped active" style="display: none;">
+                                                                                    <div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+                                                                                      <!--<span class="sr-only">45% Complete</span>-->
+                                                                                    </div>
+                                                                            </div>
+                                                                        
+                                                                    </div>
+                                                                    <!--/MFA TOKEN -->
+                                                                    
+                                                                    
+                                                                    <!-- ENTER YOUR ACCOUNT NUMBER-->
+                                                                    <div id="enterAcctNumDiv" style="display: none; padding:15px 0px 10px 0px">
+                                                                        Thank you, <br>
+                                                                        Your account is Verified,<br><br>
+                                                                        We have confirmed your account number, please continue to next step. <br><br>
+                                                                        Account Number: <span class="acctNum"></span>
+                                                                        
+                                                                        <div style="margin-top: 15px; width: 150px;">
+                                                                            <button id="enterAcctNumButton" type="button" class="btn btn-danger">Complete</button>
+                                                                        </div>
+                                                                    </div>
+                                                                    <!--/MFA TOKEN -->
+                                                                    
+                                                                    
+                                                                    
+                                                                </div>
+								</div>
+								
+								
+								
+								<div id="setUpYourPin"  style="padding: 10px 0px 20px 0px; display: none;">
+									Please choose a PIN of minimum 6 digits incase you wish to use this account again
+									<br>
+									<br>
+									
+									<div style="display: inline-block; width:150px; margin: 0px 10px 15px 0px; vertical-align: top;">
+                                                                            <input type="password" class="form-control inputCB" id="online_passcode" name="online_passcode"
+										placeholder="Enter Pin" tabindex="1" style="padding-left:8px !important; font-size:13px;"
+										data-parsley-maxlength="26" 
+										data-parsley-minlength="6"
+										data-parsley-required="true">    
+                                                                        </div>
+                                                                        
+									<div style="display: inline-block; width:150px; margin: 0px 10px 15px 0px; vertical-align: top;">
+                                                                            <input type="password" class="form-control inputCB" id="online_passcode_confirm" name="online_passcode_confirm"
+                                                                                    placeholder="Confirm Pin" tabindex="2" style="padding-left:8px !important; font-size:13px;"
+                                                                                    data-parsley-maxlength="26" 
+                                                                                    data-parsley-minlength="6"
+                                                                                    data-parsley-required="true"
+                                                                                    data-parsley-equalto="#online_passcode">
+                                                                        </div>
+									
+									<button id="pinCreateBtn" type="submit" class="btn btn-danger" tabindex="5"
+									style="margin-bottom: 10px; margin-top:0px; display: inline-block; width:150px; vertical-align: top;">
+									      Continue</button>
+									
+									<div class="errorResp" style="display: none; color: red;">								    		
+									</div>
+									
+									<!--Show throbber-->
+									<div id="throbberIdVerify" class="progress progress-striped active" style="display: none;">
+										<div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+										  <!--<span class="sr-only">45% Complete</span>-->
+										</div>
+									</div>
+								</div>
+								
+								
+								
+								<form id="loginWithYourPin"  style="padding:5px 20px 10px 20px; display: none;">
+									
+										You transacted with us earlier. Simply enter your PIN
+										<br><br>
+										<i class="icon-envelope" style="top:80px;"></i>
+										<input type="email" class="form-control" placeholder="Email Address" id="senders_email_id_exist"  style="padding-left:30px !important; clear:both; margin-bottom: 15px; "
+										tabindex="3" data-parsley-required="true">
+									      
+										<input type="password" class="form-control inputCB" id="online_passcode_exist" name="online_passcode_exist"
+										       placeholder="Enter Pin" tabindex="1" style="margin-bottom: 15px; padding-top:5px;"
+											data-parsley-required="true">
+										
+										<div id="invalidPinLoginMsg" style="display: none; color: red; padding-bottom: 7px;">
+											Invalid Pin
+										</div>
+										
+										<button id="loginWithYourPinBtn" class="btn btn-danger" tabindex="5"
+										style="margin-bottom: 10px;">
+										      Continue</button>
+										
+										
+										
+										<!--Show throbber-->
+										<div id="throbberIdVerifyLogin" class="progress progress-striped active" style="display: none;">
+											<div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
+											  <!--<span class="sr-only">45% Complete</span>-->
+											</div>
+										</div>
+									
+								</form>
+								
+							</div>
+                                                        
+                                                        
+                                                        
+							<div id="senderSection" style="position: relative; background-repeat:no-repeat;min-height: 300px;width: 100%;background-image: url('../static/img/blue_check.jpg');
+							    background-position: 0px 20px;">
+							  
+								<a style="position: absolute; bottom: 13px; font-size: 12px;" href="api/terms" onclick="return popitup('/api/terms')">Terms & conditions</a>
+								<a style="position: absolute; bottom: 13px; left: 305px; text-align: right; font-size: 12px;" href="api/terms" onclick="return popitup('/api/security')">Security: Bank info is not saved on our site.</a>
+								
+							  <div id="enterRoutingMsg" style="display: none; position: absolute; left: 5px; top: 275px;color: red;">
+									You are almost there. Please provide your routing # and account #.
+							  </div>
+							  
+							  <div id="senderCheckUI">
+								
+								<div style="position: relative;top: 20px;">
+								      <div style="font-family: Helvetica,Arial,sans-serif;">
+									      <div id="displayName" style="position: absolute; left: 20px; top: 14px;"></div>
+									      <!--<div id="displayAddress" style="font-size: 70%; position: absolute; left: 10px; top: 28px;">&nbsp;&nbsp;&nbsp;Addr1, Addr2</div>-->
+									      <!--<div id="displayAddressAdditional" style="font-size: 70%; position: absolute; left: 10px; top: 39px;">&nbsp;&nbsp;&nbsp;JR_City,&nbsp;CA&nbsp;76001</div>-->
+									      <div id="displayEmail" style="font-size: 9px; position: absolute; left: 20px; top: 58px;"></div>
+									      <div id="addressLine1" style="font-size: 9px; position: absolute; left: 20px; top: 38px;"></div>
+									      <div id="cityStateZip" style="font-size: 9px; position: absolute; left: 20px; top: 48px;"></div>
+									      <div style="position: absolute; left: 400px; top: 12px"></div> 
+								      </div>
+								      <div id="displayDate" style="position: absolute; left: 330px; top: 50px">10-14-2013</div>
+								      <div id="displayRecipient" style="position: absolute; left: 90px; top: 82px; font-size: 125%"></div>
+								      <div id="displayValue" style="position: absolute; left: 440px; top: 90px; font-size: 125%"></div>
+								      <div id="displayWrittenOutSum" style="font-style: italic; font-size: 16px; position: absolute; left: 40px; top: 116px; width:400px;"></div>
+								      <div id="displayRecurrence" style="font-weight: bold; position: absolute; left: 435px; top: 250px; width: 110px; word-wrap: line-break"></div>
+								      <div id="displayFor" style="font-family: Helvetica,Arial,sans-serif; font-size: 120%; position: absolute; left: 50px; top: 168px; width:250px; height:40px; overflow:hidden"></div>
+								      <div id="displayNameTrailer" style="font-size: 125%; font-style: italic; position: absolute; left: 309px; top: 168px; width: 215px; height: 40px;"></div>
+								      <div style="position: absolute; left: 45px; top: 215px">
+									<input type="text" style="font-weight: bold; border: 2px solid rgb(73, 135, 202); padding-left: 5px !important; height: 28px; top: -15px; position: relative; background-color: rgb(238, 238, 238); padding: 0px 0px 0px 10px !important; width: 110px; left: -2px;"
+									      id="routingNumber" name="routingNumber" placeholder="Routing #"
+									      data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Enter Your Routing Number">
+								      </div>
+								      <div style="position: absolute; left: 220px; top: 215px">
+									<input type="text" style="font-weight: bold; border: 2px solid rgb(73, 135, 202); padding-left: 5px !important; height: 28px; top: -15px; left: -45px; position: relative; background-color: rgb(238, 238, 238); padding: 0px 0px 0px 10px !important;  width: 160px;"
+									  id="accountNumber" name="accountNumber" placeholder="Account #"
+									  data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Enter Your Account Number">
+								      </div>
+								      
+								 </div>	
+							  </div>
+								
+							  
+							</div>
+							<!--Show throbber-->
+							<div id="throbberIdSender" class="progress progress-striped active" style="display: none;">
+								<div class="progress-bar"  role="progressbar" aria-valuenow="45" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+								  <!--<span class="sr-only">45% Complete</span>-->
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--/LOGIN -->	    
+	  </div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+      </div><!-- /.modal -->
+
+	<script src="https://www.checkbook.io/static/js/jquery-1.9.1.min.js"></script>
+	
+	<!-- <script src="https://www.checkbook.io/static/api/customForm_checkbook.js"></script>  -->
+	<!-- <script src="https://sandbox.checkbook.io/static/api/customForm_checkbook.js"></script> -->
+	<script src="http://localhost:5000/static/api/customForm_checkbook.js"></script>
+
+	<script>
+		
+			
+		var config = {
+			data_key: "MJ95Gjr9G6wBKwBiPbYG9JavvGnG4lnyC6QSZt9G8Ag",
+			data_amount: "25.45",
+			data_name: "Jr Merchants",
+			data_for: "Jr Merchants",
+			data_description: "2 widgets ($20.00)",
+			data_user_email: "support1@checkbook.io",
+			data_redirect_url : "someURL",
+			data_firstName : "john",
+			data_lastName : "smith",
+			data_addr1 : "2222 Benton street",
+			data_addr2 : "address Line 2",
+			data_city : "San Jose",
+			data_state : "California",
+			data_zip : "95050",
+			data_country : "Unites States",
+			data_env : "local"
+		};
+		
+		var checkbook = new Checkbook(config);
+	
+		var checkbookResponseHandler = function(status, response) {
+			if (response.error) {
+			  // Show the errors on the form
+			  alert(response.error);
+			} else {
+			  var token = response.token;
+			}
+		};
+		
+		function popitup(url) {
+			newwindow=window.open(url,'name','height=500,width=500');
+			if (window.focus) {newwindow.focus()}
+			return false;
+		}
+		//REMEMEBR to call checkbook.submit() and pass checkbookResponseHandler
+		//This checkbookResponseHandler method will be called and response will have token
+		//which you can pass back to magento backend and use this token to call charge API
+		
+		//checkbook.submit(checkbookResponseHandler);		
+		
+	      
+	</script>
+</body>
+</html>
