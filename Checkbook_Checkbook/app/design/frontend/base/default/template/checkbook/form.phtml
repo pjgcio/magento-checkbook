@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta http-equiv="content-type" content="text/html; charset=UTF-8">
-	<meta charset="utf-8">
-	<title>checkbook.io - Home</title>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
-	<meta name="description" content="">
-	<meta name="author" content="">
-	<!-- STYLESHEETS -->
+<?php $_code=$this->getMethodCode() ?>
+<ul class="form-list" id="payment_form_<?php echo $_code ?>" style="display:none;">
+<li>
 
-		
-</head>
-<body>
 	<!-- Modal -->
 	<div id="checkbookWrapper">
 	<div class="modal-dialog" style="width:600px;">
@@ -22,17 +12,9 @@
 					<div>
 						<div class="box" style="margin: 0; padding: 0px 20px 0px 20px;">
 							<h3 class="bigintro">Pay by Online Check
-								<a href="https://www.positivessl.com" style="font-family: arial; font-size: 10px; color: #212121;text-decoration: none;">
-									<img src="https://www.clickssl.com/wp-content/uploads/2012/01/ssl_verisign.png" alt="Positive SSL on a transparent background" title="Positive SSL on a transparent background" border="0"
-									     style="width: 100px;height: 50px;position: relative;top: -20px;right: 208px;float: right;"/>
-								</a>
-								
-								<a href="https://www.positivessl.com" style="font-family: arial; font-size: 10px; color: #212121;text-decoration: none;">
-									<img src="https://www.positivessl.com/images-new/PositiveSSL_tl_trans.png" alt="Positive SSL on a transparent background" title="Positive SSL on a transparent background" border="0"
-									     style="width: 60px;height: 60px;float: right;position: relative;top: -20px;right: -96px;"/>
-								</a>
+								<a id="checkbookDetail" style="position: absolute; right: 10px; font-size: 12px; text-transform: none;" href="javascript:void(0)">What is this?</a>
+                                                                <div id="showCheckbookDetail" style="display: none; position: absolute; right: 60px; top:-10px; z-index: 99; width:240px; background-color: #fff; font-size: 12px; border: 1px solid #ccc; padding: 10px; text-transform: none;"></div>
 							</h3>
-                                                        
                                                         <!-- topSideSenderForm  -->
                                                         <div class="form-group" style="padding-right: 20px; margin-right:10px; margin-top:20px; float:none;">
 								  
@@ -47,6 +29,7 @@
 									The money will be withdrawn from your bank account.
 									<br>
 									<br>
+                                                                        <b>Please click on Place Order to complete transaction</b>
 									<div class="errorResp"></div>
 									
                                                                         <!-- <br>	
@@ -122,14 +105,14 @@
                                                                                             </select>
                                                                                             <div class="form-horizontal" style="display: inline-block; width:130px; margin:0px 10px 0px 0px; vertical-align: top;">                                              
                                                                                                 <input class="form-control" type="text" style="margin:10px 0px 15px 0px !important; padding-left:10px !important; font-size: 12px"                                       
-                                                                                                id="accountNum" name="accountNum" placeholder="Account Number" maxlength="17"
-                                                                                                data-parsley-number="true" data-parsley-required="true">
+                                                                                                id="accountNum" name="accountNum" placeholder="Account Number" data-parsley-type="number" maxlength="17" data-parsley-maxlength="17"
+                                                                                                 data-parsley-minlength="6" data-parsley-required="true">
                                                                                             </div>
                                                                                             <div class="form-horizontal" style="display: inline-block; width:130px; vertical-align: top;">                                               
                                                                                                 <input class="form-control" type="text" style="margin:10px 0px 15px 0px !important; padding-left:10px !important; font-size: 12px;"
                                                                                                 id="routingNum" name="routingNum" placeholder="Routing Number"
                                                                                                 data-toggle="tooltip" data-placement="bottom" title=""                                
-                                                                                                data-parsley-number="true"
+                                                                                                data-parsley-type="number"
                                                                                                 data-parsley-required="true"
                                                                                                 data-parsley-maxlength="9" data-parsley-minlength="9" maxlength="9">                                                                                                
                                                                                             </div>
@@ -248,25 +231,31 @@
 								
 								
 								
-								<div id="loginWithYourPin"  style="padding:5px 20px 10px 20px; display: none;">
+								<div id="loginWithYourPin"  style="padding: 5px 0px 10px 0px; display: none;">
 									
 										You transacted with us earlier. Simply enter your PIN
 										<br><br>
 										<i class="icon-envelope" style="top:80px;"></i>
-										<input type="email" class="form-control" placeholder="Email Address" id="senders_email_id_exist"  style="padding-left:30px !important; clear:both; margin-bottom: 15px; "
-										tabindex="3" data-parsley-required="true">
-									      
-										<input type="password" class="form-control inputCB" id="online_passcode_exist" name="online_passcode_exist"
-										       placeholder="Enter Pin" tabindex="1" style="margin-bottom: 15px; padding-top:5px;"
-											data-parsley-required="true">
-										
-										<div id="invalidPinLoginMsg" style="display: none; color: red; padding-bottom: 7px;">
+										<div style="margin:0px 15px 15px 0px; display: inline-block; width: 200px; vertical-align: top;">  
+                                                                                    <input type="email" class="form-control" placeholder="Email Address" id="senders_email_id_exist"  style="padding-top: 7px; padding-left:8px !important;"
+                                                                                    tabindex="3" data-parsley-required="true">
+                                                                                </div>
+
+										<div style="display: inline-block; width: 130px; vertical-align: top; margin: 0px 15px 0px 0px;">   
+                                                                                    <input type="password" class="form-control inputCB" id="online_passcode_exist" name="online_passcode_exist"
+                                                                                           placeholder="Enter Pin" tabindex="1" style="padding-left: 8px !important; margin: 0px 15px 15px 0px; padding-top:5px;"
+                                                                                            data-parsley-required="true">
+                                                                                </div>
+                                                                                
+										<button type="button" id="loginWithYourPinBtn" class="btn btn-danger" tabindex="5"
+										style="margin-bottom: 0px; display: inline-block; width:100px; position: relative; top:-4px;">
+										      Continue</button>
+                                                                                
+                                                                                <div id="invalidPinLoginMsg" style="display: none; color: red; padding-bottom: 7px;">
 											Invalid Pin
 										</div>
 										
-										<button type="button" id="loginWithYourPinBtn" class="btn btn-danger" tabindex="5"
-										style="margin-bottom: 10px;">
-										      Continue</button>
+										
 										
 										
 										
@@ -283,12 +272,12 @@
                                                         
                                                         
                                                         
-							<div id="senderSection" style="position: relative; background-repeat:no-repeat;min-height: 300px;width: 100%;background-image: url('../static/img/blue_check.jpg');
+							<div id="senderSection" style="position: relative; background-repeat:no-repeat;min-height: 300px;width: 100%;background-image: url('http://checkbook.io/static/img/blue_check.jpg');
 							    background-position: 0px 20px;">
 							  
-								<a style="position: absolute; bottom: 13px; font-size: 12px;" href="api/terms" onclick="return popitup('/api/terms')">Terms & conditions</a>
-								<a style="position: absolute; bottom: 13px; left: 305px; text-align: right; font-size: 12px;" href="api/terms" onclick="return popitup('/api/security')">Security: Bank info is not saved on our site.</a>
-								
+								<a style="position: absolute; bottom: 13px; font-size: 12px;" href="https://www.checkbook.io/api/terms" onclick="return popitup('https://www.checkbook.io/api/terms')">Terms & conditions</a>
+								<a style="position: absolute; bottom: 13px; left: 305px; text-align: right; font-size: 12px;" href="https://www.checkbook.io/api/security" onclick="return popitup('https://www.checkbook.io/api/security')">Security: Bank info is not saved on our site.</a>                                                                
+                                                                
 							  <div id="enterRoutingMsg" style="display: none; position: absolute; left: 5px; top: 275px;color: red;">
 									You are almost there. Please provide your routing # and account #.
 							  </div>
@@ -344,57 +333,43 @@
 	</div><!-- /.modal-dialog -->
       </div><!-- /.modal -->
 
-	<script src="https://www.checkbook.io/static/js/jquery-1.9.1.min.js"></script>
+<li>
+	<input type="hidden" name="payment[token]" id="checkbook_token" value=""/>
+	<input type="hidden" name="payment[amount]" value="<?php echo $this->getFinalValue(); ?>"/>
+	<input type="hidden" name="payment[currency]" value="<?php echo $this->getCurrencyCode();?>"/>
+	<input type="hidden" name="payment[description]" value="<?php echo $this->getItemDescription(); ?>"/>
 	
-	<!-- <script src="https://www.checkbook.io/static/api/customForm_checkbook.js"></script>  -->
-	<!-- <script src="https://sandbox.checkbook.io/static/api/customForm_checkbook.js"></script> -->
-	<script src="http://localhost:5000/static/api/customForm_checkbook.js"></script>
+<script type="text/javascript">
+var checkbook_config = {
+	data_key: "<?php echo $this->getMethod()->getConfigData('publishable_key');?>",
+	data_amount: "<?php echo $this->getFinalValue(); ?>",
+	data_name: "Your Company Name",
+	data_for: "Your Company Name",
+	data_description: "<?php echo $this->getItemDescription(); ?>",
+	data_user_email: "<?php echo $this->getCustomerEmail(); ?>",
+	data_firstName : "<?php echo $this->getCustomerFirstName(); ?>",
+	data_lastName : "<?php echo $this->getCustomerLastName(); ?>",
+	data_addr1 : "<?php echo $this->getStreetLine1(); ?>",
+	data_addr2 : "<?php echo $this->getStreetLine2(); ?>",
+	data_city : "<?php echo $this->getCity(); ?>",
+	data_state : "<?php echo $this->getRegion(); ?>",
+	data_zip : "<?php echo $this->getPostcode(); ?>",
+	data_country : "<?php echo $this->getCountryName(); ?>",
+        data_env : "sandbox"
+};
+var checkbook = new Checkbook(checkbook_config);
 
-	<script>
-		
-			
-		var config = {
-			data_key: "MJ95Gjr9G6wBKwBiPbYG9JavvGnG4lnyC6QSZt9G8Ag",
-			data_amount: "25.45",
-			data_name: "Jr Merchants",
-			data_for: "Jr Merchants",
-			data_description: "2 widgets ($20.00)",
-			data_user_email: "support1@checkbook.io",
-			data_redirect_url : "someURL",
-			data_firstName : "john",
-			data_lastName : "smith",
-			data_addr1 : "2222 Benton street",
-			data_addr2 : "address Line 2",
-			data_city : "San Jose",
-			data_state : "California",
-			data_zip : "95050",
-			data_country : "Unites States",
-			data_env : "local"
-		};
-		
-		var checkbook = new Checkbook(config);
-	
-		var checkbookResponseHandler = function(status, response) {
-			if (response.error) {
-			  // Show the errors on the form
-			  alert(response.error);
-			} else {
-			  var token = response.token;
-			}
-		};
-		
-		function popitup(url) {
+
+
+function popitup(url) {
 			newwindow=window.open(url,'name','height=500,width=500');
 			if (window.focus) {newwindow.focus()}
 			return false;
 		}
-		//REMEMEBR to call checkbook.submit() and pass checkbookResponseHandler
-		//This checkbookResponseHandler method will be called and response will have token
-		//which you can pass back to magento backend and use this token to call charge API
-		
-		//checkbook.submit(checkbookResponseHandler);		
-		
-	      
-	</script>
-</body>
-</html>
+
+</script>
+<div>
+  <?php echo $this->getMethod()->getConfigData('message');?>
+</div>
+</li>
+</ul>
